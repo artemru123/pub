@@ -19,7 +19,7 @@ def proxy(token, method):
 
   
     resps = requests.request( method=request.method, url=url, params=request.args,data=request.get_data(), headers={k: v for k, v in request.headers if k.lower() != 'host'})
-    return (resps.content, resps.status_code, resps.headers.items())
+    return (resps.content, resps.status_code, list(resps.headers.items()))
 @app.route('/')
 
 def homes():
